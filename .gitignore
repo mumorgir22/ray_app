@@ -1,0 +1,11 @@
+.venv
+.idea
+__pycache__
+.db
+.ruff_cache
+.mypy_cache
+venv
+dump.rdb
+redis-data
+test.py
+redis_cache-data

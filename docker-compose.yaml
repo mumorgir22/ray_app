@@ -1,0 +1,25 @@
+version: '3.11'
+
+services:
+  db:
+    image: postgres:15.1-alpine
+    container_name: ray_app_db
+    environment:
+      - POSTGRES_DB=ray_app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - .db:/var/lib/postgresql/data
+  redis:
+    image: redis:latest
+    container_name: first_app_redis
+    volumes:
+      - ./redis_cache-data:/data
+    ports:
+      - '6379:6379'
+
+volumes:
+  db:
+    driver: local
